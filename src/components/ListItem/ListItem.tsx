@@ -1,16 +1,15 @@
 import * as React from "react";
-import * as models from "../../models"
- 
-interface Iprops{
-  data:models.ICharacter
-  click?:any
+import * as models from "../../models";
+
+interface Iprops {
+  data: models.ICharacter;
+  click?: any;
 }
 
-
-const ListItem = (props:Iprops) => {
+const ListItem = (props: Iprops) => {
   const { data, click } = props;
-  const HandleClick = (e:React.MouseEvent) => {
-    e.preventDefault;
+  const HandleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     click(data);
   };
 

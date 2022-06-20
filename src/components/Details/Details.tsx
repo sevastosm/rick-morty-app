@@ -13,7 +13,9 @@ const Details = (props: Iprops) => {
         <div>
           <h1>{character.name}</h1>
         </div>
-        <img src={character.image} alt="" />
+        <div className="m-1">
+          <img src={character.image} alt="character" />
+        </div>
 
         <h3>Status: {character.status}</h3>
         <h3>Species: {character.species}</h3>

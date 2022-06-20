@@ -1,7 +1,7 @@
 {
   "name": "ricky_and_morty",
   "version": "1.0.0",
-  "description": "Rick and Morty assighnment for PPH",
+  "description": "Rick and Morty app",
   "main": "index.tsx",
   "scripts": {
     "test": "jest",

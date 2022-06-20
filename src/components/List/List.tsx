@@ -28,7 +28,7 @@ interface Iprops {
 const defaultValues: any = {
   species: null,
   status: null,
-  gender: null
+  gender: null,
 };
 
 const List: React.FC = (props: PropsWithChildren<Iprops>) => {
@@ -40,24 +40,19 @@ const List: React.FC = (props: PropsWithChildren<Iprops>) => {
     loading,
     location,
     history,
-    errorInSearch
+    errorInSearch,
   } = props;
 
   const [drodownValues, setDefaultValues] = React.useState(defaultValues);
   const [modalOpen, setModal] = React.useState(false);
   const [selectedCharacter, setCharacter] = React.useState(null);
 
-  React.useEffect(() => {
-    fetchCharacters(location ? location.search : "");
-    getDefaultValue();
-  }, [location]);
-
   const getDefaultValue = () => {
     let params = new URLSearchParams(document.location.search.substring(1));
     setDefaultValues({
       species: params.get("species"),
       status: params.get("status"),
-      gender: params.get("gender")
+      gender: params.get("gender"),
     });
   };
 
@@ -80,7 +75,7 @@ const List: React.FC = (props: PropsWithChildren<Iprops>) => {
     }
     history.push({
       pathname: location.pathname,
-      search: params.toString()
+      search: params.toString(),
     });
   };
 
@@ -95,6 +90,11 @@ const List: React.FC = (props: PropsWithChildren<Iprops>) => {
       </div>
     );
   };
+
+  React.useEffect(() => {
+    fetchCharacters(location ? location.search : "");
+    getDefaultValue();
+  }, [location]);
 
   return (
     <div>
@@ -114,19 +114,19 @@ const List: React.FC = (props: PropsWithChildren<Iprops>) => {
             />
             <DropDown
               Options={species}
-              onChange={val => handleLocationChangeChange("species", val)}
+              onChange={(val) => handleLocationChangeChange("species", val)}
               value={drodownValues.species ? drodownValues.species : null}
               defaultText={"Select Species"}
             />
             <DropDown
               Options={status}
-              onChange={val => handleLocationChangeChange("status", val)}
+              onChange={(val) => handleLocationChangeChange("status", val)}
               value={drodownValues.status ? drodownValues.status : null}
               defaultText={"Select Status"}
             />
             <DropDown
               Options={gender}
-              onChange={val => handleLocationChangeChange("gender", val)}
+              onChange={(val) => handleLocationChangeChange("gender", val)}
               value={drodownValues.gender ? drodownValues.gender : null}
               defaultText={"Select Gender"}
             />
@@ -166,13 +166,14 @@ const mapStateToProps = (state: models.IData) => {
     info: state.data.info,
     loading: state.data.loading,
     species: state.data.species,
-    errorInSearch: state.data.errorInSearch
+    errorInSearch: state.data.errorInSearch,
   };
 };
 
 const mapDispatchToStore = (dispatch: any) => {
   return {
-    fetchCharacters: (query: string) => dispatch(actions.fetchCharacters(query))
+    fetchCharacters: (query: string) =>
+      dispatch(actions.fetchCharacters(query)),
   };
 };
 
