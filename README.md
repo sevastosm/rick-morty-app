@@ -1,5 +1,5 @@
-README.md
-rick-morty-app
+## Rick-morty-app
+
 A funny application with characters from Rick and Morty.
 
 - The application was build from scratch using [React](https://reactjs.org/), [Webpack](https://webpack.js.org/) and [Typescript](https://www.typescriptlang.org/)
@@ -10,7 +10,7 @@ A funny application with characters from Rick and Morty.
 - For TDD [Jest](https://jestjs.io/) and [Enzyme](https://enzymejs.github.io/enzym) used.
 Demo:https://ricknmorty-32ebc.firebaseapp.com/
 
-##Starting the application.. 👴👦
+## Starting the application.. 👴👦
 ```sh
 Clone the repo
 cd rick-morty-app
